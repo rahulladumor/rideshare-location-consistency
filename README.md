@@ -69,9 +69,19 @@ This project shows you **exactly how to build that infrastructure**.
 
 ![Architecture Diagram](./docs/diagrams/architecture.png)
 
-See the [Architecture Documentation](./docs/ARCHITECTURE.md) for detailed diagrams and explanations.
+*Complete system architecture showing all 7 layers from ingestion to monitoring*
+
+### Multi-Region Deployment
+
+![Multi-Region Architecture](./docs/diagrams/multi_region.png)
+
+*Active-active deployment across multiple AWS regions with sub-second replication*
 
 ### Data Flow
+
+![Data Flow Diagram](./docs/diagrams/data_flow.png)
+
+*End-to-end data flow from driver app to graph database (< 3 seconds)*
 
 ```
 Driver App → IoT Core → Lambda → DynamoDB Global Table
@@ -88,7 +98,11 @@ Driver App → IoT Core → Lambda → DynamoDB Global Table
                                    (Proximity Mapping)
 ```
 
-### Consistency Check Flow
+### Consistency Check & Self-Healing
+
+![Consistency Workflow](./docs/diagrams/consistency_workflow.png)
+
+*Automated drift detection and self-healing every 10 seconds*
 
 ```
 EventBridge (Every 10s) → Step Functions → Lambda (Drift Detection)
@@ -99,6 +113,22 @@ EventBridge (Every 10s) → Step Functions → Lambda (Drift Detection)
                                                       ↓
                                                 Republish Data
 ```
+
+### Component Interaction
+
+![Component Interaction](./docs/diagrams/component_interaction.png)
+
+*How all infrastructure constructs interact with each other*
+
+### 📊 More Diagrams
+
+All diagrams are available in the [`docs/diagrams/`](./docs/diagrams/) folder:
+- **Architecture diagrams** - High-level and detailed views
+- **Mermaid diagrams** - Interactive diagrams in [architecture.md](./docs/diagrams/architecture.md)
+- **Generated PNG diagrams** - 5 professional diagrams using Python
+- **Diagram generation script** - Recreate diagrams with `python docs/diagrams/generate_diagrams.py`
+
+See the complete [Architecture Documentation](./docs/ARCHITECTURE.md) for in-depth explanations.
 
 ## 🔥 The Problem
 
