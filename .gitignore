@@ -148,5 +148,4 @@ ENV/
 .venv
 
 # Diagrams output
-docs/diagrams/*.png
 !docs/diagrams/README.md
